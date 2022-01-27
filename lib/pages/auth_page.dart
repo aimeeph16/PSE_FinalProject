@@ -69,8 +69,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: 'ECORP',
-      // logo: 'assets/images/ecorp-lightblue.png',
+      title: 'Secure',
       onLogin: _authUserLogin,
       onSignup: _authUserSignUp,
       onSubmitAnimationCompleted: () {
