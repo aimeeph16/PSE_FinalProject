@@ -1,16 +1,7 @@
-#Modified by smartbuilds.io
-#Date: 03.07.20
-#Desc: This script is running a face recongition of a live webcam stream. This is a modifed
-#code of the orginal Ageitgey (GitHub) face recognition demo to include multiple faces.
-#Simply add the your desired 'passport-style' face to the 'profiles' folder.
-
 import face_recognition
 import cv2
 import numpy as np
 import os
-
-# Note: This script requires OpenCV (the `cv2` library) to be installed only to read from your webcam.
-# Visit smartbuids.io for more information
 
 # Get a reference to webcam #0 (the default one)
 video_capture = cv2.VideoCapture(0)
