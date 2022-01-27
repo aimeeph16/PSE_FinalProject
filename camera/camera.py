@@ -32,12 +32,17 @@ for file in os.listdir("profiles"):
 #print(known_person)
 
 
+
 class VideoCamera(object):
+    global current_person;
     def __init__(self):
         self.video = cv2.VideoCapture(0)
     
     def __del__(self):
         self.video.release()
+    
+    def get_person(self):
+        return self.current_person
     
     def get_frame(self):
         success, image = self.video.read()
@@ -53,8 +58,8 @@ class VideoCamera(object):
             face_locations = face_recognition.face_locations(rgb_small_frame)
             face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
-            global name_gui;
-            #face_names = []
+            global name_onScreen;
+
             for face_encoding in face_encodings:
                 #check for matching face
                 matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
@@ -72,24 +77,25 @@ class VideoCamera(object):
                 #print(face_locations)
                 face_names.append(name)
         
-                name_gui = name
+                name_onScreen = name
+                current_person = name
 
-        process_this_frame = not process_this_frame
+        frame_processed = not frame_processed
             
         #display
         for (top, right, bottom, left), name in zip(face_locations, face_names):
-        top *= 4
-        right *= 4
-        bottom *= 4
-        left *= 4
+            top *= 4
+            right *= 4
+            bottom *= 4
+            left *= 4
 
-        #drawing a box around the face
-        cv2.rectangle(frame, (left, top), (right, bottom), (255, 255, 255), 2)
+            #drawing a box around the face
+            cv2.rectangle(frame, (left, top), (right, bottom), (255, 255, 255), 2)
 
-        #labeling the box
-        cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (255, 255, 255), cv2.FILLED)
-        font = cv2.FONT_HERSHEY_DUPLEX
-        cv2.putText(frame, name_gui, (left + 10, bottom - 10), font, 1.0, (0, 0, 0), 1)
+            #labeling the box
+            cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (255, 255, 255), cv2.FILLED)
+            font = cv2.FONT_HERSHEY_DUPLEX
+            cv2.putText(frame, name_onScreen, (left + 10, bottom - 10), font, 1.0, (0, 0, 0), 1)
 
         
         ret, jpeg = cv2.imencode('.jpg', image)
