@@ -11,6 +11,7 @@ The 'psesecurity' contains the following pages:
 - Login Page
 - SignUp Page
 - Home Page
+
 Complete with Firebase Rest API and Error Handling.
 
 The 'psesecuritycam' is an attempt at deploying flutter appllications to the cloud using AWS amplify.
