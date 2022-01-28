@@ -36,10 +36,16 @@ class AddProductPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Product"),
+        title: Text("Add Person"),
+        titleTextStyle: TextStyle(
+          fontFamily: 'OpenSans',
+          fontSize: 18.0,
+          color: Colors.white,
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.save),
+            color: Colors.white,
             onPressed: () => save(titleController.text, priceController.text),
           ),
         ],
@@ -57,7 +63,7 @@ class AddProductPage extends StatelessWidget {
                   controller: titleController,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
-                    labelText: "Product Name",
+                    labelText: "Person's Name",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -70,7 +76,7 @@ class AddProductPage extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.done,
                   decoration: InputDecoration(
-                    labelText: "Price",
+                    labelText: "Phone Number",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -88,6 +94,8 @@ class AddProductPage extends StatelessWidget {
                   "Save",
                   style: TextStyle(
                     fontSize: 18,
+                    color: Colors.white,
+                    fontFamily: 'OpenSans'
                   ),
                 ),
                 style: ElevatedButton.styleFrom(

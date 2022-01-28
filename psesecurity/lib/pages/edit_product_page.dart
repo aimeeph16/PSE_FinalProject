@@ -26,7 +26,7 @@ class EditProductPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit Product"),
+        title: Text("Edit"),
         actions: [
           IconButton(
             icon: Icon(Icons.save),
@@ -47,7 +47,7 @@ class EditProductPage extends StatelessWidget {
                   controller: titleController,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
-                    labelText: "Product Name",
+                    labelText: "Person's Name",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -60,7 +60,7 @@ class EditProductPage extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.done,
                   decoration: InputDecoration(
-                    labelText: "Price",
+                    labelText: "Phone Number",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
